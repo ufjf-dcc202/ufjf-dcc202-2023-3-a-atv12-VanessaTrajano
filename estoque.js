@@ -3,3 +3,8 @@ let estoque = {
     maria: [{tipo: "maca", qtd: 2}, {tipo: "banana", qtd: 1}]
 }
 
+function getEstoque(){
+    return structuredClone(estoque)
+}
+
+export {getEstoque}
