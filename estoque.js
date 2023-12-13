@@ -7,4 +7,10 @@ function getEstoque(){
     return structuredClone(estoque)
 }
 
+function transacao(origem, destino, quantidade, fruta){
+    if(origem === "pomar"){
+        estoque[destino][0].qtd += quantidade
+    }
+}
+
 export {getEstoque}
