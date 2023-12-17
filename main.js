@@ -40,3 +40,10 @@ function atualizaTela() {
     preencheListaPessoa(estoque['joao'], olJoao)
     preencheListaPessoa(estoque['maria'], olMaria)
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('botaoLimparLista').addEventListener('click', () => {
+        limpaEstoque()
+        atualizaTela()
+    })
+})
