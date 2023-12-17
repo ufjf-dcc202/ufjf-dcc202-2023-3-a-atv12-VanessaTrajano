@@ -1,9 +1,12 @@
-import { getEstoque, limpaEstoque, transacaoNoEstoque } from "./estoque.js";
+import { getEstoque, limpaEstoque, transacaoNoEstoque } from "./estoque.js"
 
 document.entrada.addEventListener('submit', leFormulario)
 
-const olJoao = document.querySelector("#olJoao")
-const olMaria = document.querySelector("#olMaria")
+
+const olJoao = document.querySelector("#joao")
+const olMaria = document.querySelector("#maria")
+
+atualizaTela()
 
 function leFormulario(event){
     event.preventDefault()
@@ -19,18 +22,12 @@ function leFormulario(event){
     atualizaTela()
 }
 
-function preencheListaPessoa(pessoa, lista){
-    lista.innerHTML = ""
-
-    if(Array.isArray(pessoa)){
-        for(let i = 0; i < pessoa.length; i++){
-            const monte = pessoa[i]
-            const eLi = document.createElement('li')
-            eLi.innerText = `${monte.tipo}: ${monte.quantidade}`
-            lista.append(eLi)
-        }
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('botaoLimparLista').addEventListener('click', () => {
+        limpaEstoque()
+        atualizaTela()
+    })
+})
 
 function atualizaTela() {
     const estoque = getEstoque()
@@ -42,9 +39,15 @@ function atualizaTela() {
     preencheListaPessoa(estoque['maria'], olMaria)
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('botaoLimparLista').addEventListener('click', () => {
-        limpaEstoque()
-        atualizaTela()
-    })
-})
+function preencheListaPessoa(pessoa, lista){
+    lista.innerHTML = ""
+
+    if(Array.isArray(pessoa)) {
+        for(let i = 0; i < pessoa.length; i++) {
+            const monte = pessoa[i]
+            const eLi = document.createElement('li')
+            eLi.innerText = `${monte.tipo}: ${monte.quantidade}`
+            lista.append(eLi)
+        }
+    }
+}
