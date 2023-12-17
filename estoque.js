@@ -11,7 +11,7 @@ function limpaEstoque() {
     estoque = {}
 }
 
-export function transacaoNoEstoque(origem, destino, tipo, quantidade){
+function transacaoNoEstoque(origem, destino, tipo, quantidade){
     if(origem === destino || quantidade <= 0){
         return
     }
