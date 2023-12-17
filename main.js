@@ -15,6 +15,7 @@ function leFormulario(event){
     console.log(`${origem} doa ${quantidade} ${fruta} para ${destino}`)
 
     transacaoNoEstoque(origem, destino, quantidade, fruta)
+    atualizaTela()
 }
 
 function preencheListaPessoa(pessoa, lista){
@@ -28,4 +29,14 @@ function preencheListaPessoa(pessoa, lista){
             lista.append(eLi)
         }
     }
+}
+
+function atualizaTela() {
+    const estoque = getEstoque()
+    
+    document.entrada.fruta.value = "maca"
+    document.entrada.quantidade.value = 1
+   
+    preencheListaPessoa(estoque['joao'], olJoao)
+    preencheListaPessoa(estoque['maria'], olMaria)
 }
