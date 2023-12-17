@@ -7,10 +7,14 @@ function getEstoque(){
     return structuredClone(estoque)
 }
 
+function limpaEstoque() {
+    estoque = {}
+}
+
 function transacao(origem, destino, quantidade, fruta){
     if(origem === "pomar"){
         estoque[destino][0].qtd += quantidade
     }
 }
 
-export {getEstoque}
+export {getEstoque, limpaEstoque}
