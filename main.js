@@ -17,3 +17,15 @@ function leFormulario(event){
     transacaoNoEstoque(origem, destino, quantidade, fruta)
 }
 
+function preencheListaPessoa(pessoa, lista){
+    lista.innerHTML = ""
+
+    if(Array.isArray(pessoa)){
+        for(let i = 0; i < pessoa.length; i++){
+            const monte = pessoa[i]
+            const eLi = document.createElement('li')
+            eLi.innerText = `${monte.tipo}: ${monte.quantidade}`
+            lista.append(eLi)
+        }
+    }
+}
